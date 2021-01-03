@@ -3,25 +3,25 @@
 //浠ヤ笅鐨刜is鏄痏intersect鐨勭缉鍐�
 var array_is_text;
 function init_intersect(){
-    // 初始化两个div的高
+    // 鍒濆鍖栦袱涓猟iv鐨勯珮搴�
     $("#div_is_inner").css({"height":$(window).height()+"px"});
     $(".div_is_typed").css({"height":$(window).height()+"px"});
     $(".div_is_open_bg").css({"height":$(window).height()+"px"});
 
-    //设置自定义背?
+    //璁剧疆鑷畾涔夎儗鏅�
     $("#div_intersect").css({"height":$(window).height()+"px"});
-    var start_bg_img=start_content['source/113.jpg'];
+    var start_bg_img=start_content['bg_img'];
     if(typeof(start_content['bg_style'])!='undefined' && start_content['bg_style']=='bg_custom'){
         if(typeof(start_bg_img)!='undefined' && start_bg_img!=''){
             $("#div_intersect").css({"background-image": 'url('+start_bg_img+')'});
         }
     }
 
-    var intersect_text=start_content['1212'];
+    var intersect_text=start_content['intersect_text'];
     if(typeof(intersect_text)!='undefined' && intersect_text!=''){
-        array_is_text=[intersect_text];  //加载自定义内
-    }else{  //设置默认
-        array_is_text=['我不知道你在干什么但是班零你是真的骚速度快JFK洛杉矶的反抗拉萨酱豆腐考虑时间科举考试大家反馈及时的反馈就看到房价女马女马是你的父母，是你的父母'];
+        array_is_text=[intersect_text];  //鍔犺浇鑷畾涔夊唴瀹�
+    }else{  //璁剧疆榛樿鍊�
+        array_is_text=['我不知到你在干什么'];
         // array_str_temp=[];
         // random_text_array(array_str_temp,3);
         // array_is_text[0]=array_is_text[0]+'<br>'+array_str_temp.join('<br>');
@@ -30,51 +30,51 @@ function init_intersect(){
 }
 
 function init_is_typed(){
-    $(".div_is_open_bg").fadeOut("fast"); //隐藏初始背景
+    $(".div_is_open_bg").fadeOut("slow"); //闅愯棌鍒濆bg
 
-    // 设置正文之前的照片
+    // 璁剧疆姝ｆ枃涔嬪墠鐨勭収鐗�
     var img_src=start_content['img_src'];
-    if(typeof(start_content['img_bool'])!='undefined' && start_content['img_bool']=='img_true'){ //如果设置了照片
+    if(typeof(start_content['img_bool'])!='undefined' && start_content['img_bool']=='img_true'){ //濡傛灉璁剧疆浜嗙収鐗�
         if(typeof(img_src)!='undefined' && img_src!=''){
-            $("#div_is_img").fadeIn("fast"); //
+            $("#div_is_img").fadeIn("slow"); //
             $("#div_is_img .img_is_typed").attr('src',img_src); //
         }
     }
     if(typeof(start_content['img_bool'])=='undefined' || typeof(start_content['intersect_text'])=='undefined'){
         var random_img=random_img_as();
-        $("#div_is_img").fadeIn("fast"); //
+        $("#div_is_img").fadeIn("slow"); //
         $("#div_is_img .img_is_typed").attr('src',random_img); //
     }
 
-    //以下是打字效果的js
+    //浠ヤ笅鏄墦瀛楁晥鏋滅殑js
     var str_cursorChar;
     if(typeof(start_content['cursor_char'])!='undefined' && start_content['cursor_char']!=''){
-        switch(start_content['cursor_char']){ //打字光标的样式
+        switch(start_content['cursor_char']){ //璁剧疆鎵撳瓧鍏夋爣鐨勬牱寮�
             case 'cursor_heart':
-                str_cursorChar='77';
+                str_cursorChar='●';
                 break;
             case 'cursor_sub':
-                str_cursorChar='23232';
+                str_cursorChar='_';
                 break;
             case 'cursor_music':
-                str_cursorChar='88';
+                str_cursorChar='';
                 break;
             case 'cursor_star':
-                str_cursorChar='99';
+                str_cursorChar='鈽�';
                 break;
             case 'cursor_sun':
-                str_cursorChar='33';
+                str_cursorChar='鈽€';
                 break;
             default:
                 str_cursorChar='|';
         }
     }else{
-        str_cursorChar='jjj';
+        str_cursorChar=' 鈾�';
     }
 
     var typed_intersect = new Typed('#span_is_typed', {
         strings: array_is_text, //杈撳叆鍐呭, 鏀寔html鏍囩
-        typeSpeed: 150, //鎵撳瓧閫熷害
+        typeSpeed: 300, //鎵撳瓧閫熷害
         // backSpeed: 50, //鍥為€€閫熷害
         // backDelay: 1000,
         loop: false, //瑕佷笉瑕佸惊鐜�
